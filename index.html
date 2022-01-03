@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Collapsible sidebar using Bootstrap 3</title>
+  <!-- #CDN LINKS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&amp;display=swap"
+    rel="stylesheet" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.standalone.min.css"
+    rel="stylesheet" />
+  <!-- Bootstrap CSS CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Our Custom CSS -->
+  <link rel="stylesheet" href="assetes/style.css">
+  <link rel="stylesheet" href="style2.css">
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+</head>
+
+<body>
+
+
+
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addproject"
+            data-whatever="@mdo">Add Project</button>
+        </h3>
+      </div>
+
+      <ul class="list-unstyled components">
+
+        <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Projects</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu">
+            <li>
+              <a href="#">Project 1</a>
+
+
+
+            </li>
+            <li><a href="#">Project 2</a></li>
+            <li><a href="#">Project 3</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
+      <ul class="list-unstyled CTAs">
+
+<!-- ///Add project Popup -->
+        <div class="modal fade" id="addproject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title text-primary" id="exampleModalLabel ">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="recipient-name" class="col-form-label text-primary ">Add Project</label>
+                    <input type="text" class="form-control" id="title" placeholder="Name project">
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="col-form-label">Message:</label>
+                    <textarea class="form-control" id="message" placeholder="description..."></textarea>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="btn">Add Project </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </ul>
+    </nav>
+
+    <!-- Fin Sidebar Holder -->
+
+    <!-- Page Content Holder -->
+    <div id="content">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+
+
+
+
+
+        </div>
+      </nav>
+
+
+      <div class="container-fluid">
+
+        <div class="container m-5 p-2 rounded mx-auto bg-light shadow">
+          <!-- App title section -->
+          <div class="row m-1 p-4">
+            <div class="col">
+              <div class="p-1 h1 text-primary text-center mx-auto display-inline-block">
+                <i class="fa fa-check bg-primary text-white rounded p-2"></i>
+                <u>My Todo-s</u>
+              </div>
+            </div>
+          </div>
+          <div class="card text-dark bg-light mb-3" style="max-width: 100%;">
+
+            <div class="card-header ">
+              <h4>Project</h4>
+              <div class="col-auto m-1 p-0 ">
+                <div class="row d-flex align-items-center justify-content-end">
+                  <!-- edit -->
+                  <h5 class="m-0 p-0 px-2">
+                    <i class="fa fa-pencil text-info btn m-0 p-0" data-placement="bottom" title=" todo "
+                      data-toggle="modal" data-target="#editproject" data-whatever="@mdo"></i>
+                  </h5>
+                  <div class="modal fade" id="editproject" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <form>
+                            <div class="form-group">
+                              <label for="recipient-name" class="col-form-label"></label>
+                              <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                              <label for="message-text" class="col-form-label"></label>
+                              <textarea class="form-control" id="message-text"></textarea>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Edit Project</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- edit -->
+
+
+                  <!-- delete -->
+                  <h5 class="m-0 p-0 px-2">
+                    <i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom"
+                      title="Delete todo"></i>
+                  </h5>
+                  <!-- delete -->
+                </div>
+                <!-- date -->
+                <div class="row todo-created-info">
+                  <div class="col-auto d-flex align-items-center pr-2">
+                    <i class="fa fa-info-circle my-2 px-2 text-black-50 btn" data-toggle="tooltip"
+                      data-placement="bottom" title="" data-original-title="Created date"></i>
+                    <label class="date-label my-2 text-black-50">28th Jun 2020</label>
+                  </div>
+                </div>
+                <!-- fin date -->
+              </div>
+
+              <div class="card-body">
+
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur
+                  adipisicing elit. Explicabo est minus nihil, exercitationem officiis s
+                  .</p>
+              </div>
+            </div>
+
+            <!-- Create todo section -->
+            <div class="row m-1 p-3">
+              <div class="col col-11 mx-auto">
+                <div
+                  class="row bg-white rounded shadow-sm p-2 add-todo-wrapper align-items-center justify-content-center">
+                  <div class="col">
+                    <input id="form" class="form-control form-control-lg border-0 add-todo-input bg-transparent rounded"
+                      type="text" placeholder="Add new ..">
+                  </div>
+
+                  <div class="col-auto px-0 mx-0 mr-2">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="p-2 mx-4 border-black-25 border-bottom"></div>
+            <!-- View options section -->
+
+            <!-- Todo list section -->
+            <div class="row mx-1 px-5 pb-3 w-80">
+              <div class="col mx-auto">
+                <!-- Todo Item 1 -->
+                <div class="row px-3 align-items-center todo-item rounded">
+                  <div class="col-auto m-1 p-0 d-flex align-items-center">
+
+                    <h2 class="m-0 p-0">
+
+                      <i class="fa fa-square-o text-primary btn m-0 p-0 d-none" data-toggle="tooltip"
+                        data-placement="bottom" title="Mark as complete"></i>
+
+                      <i class="fa fa-check-square-o text-primary btn m-0 p-0      " data-toggle="tooltip"
+                        data-placement="bottom" title="Mark as todo">
+
+
+
+
+                      </i>
+
+                    </h2>
+
+                  </div>
+                  <div class="col px-1 m-1 d-flex align-items-center">
+                    <input type="text"
+                      class="form-control form-control-lg border-0 edit-todo-input bg-transparent rounded px-3" readonly
+                      value="Renew car insurance" title="Renew car insurance" />
+                    <input type="text" class="form-control form-control-lg border-0 edit-todo-input rounded px-3 d-none"
+                      value="Renew car insurance" />
+                  </div>
+
+                  <div class="col-auto m-1 p-0 todo-actions">
+                    <div class="row d-flex align-items-center justify-content-end">
+                      <!-- edit -->
+                      <h5 class="m-0 p-0 px-2">
+                        <i class="fa fa-pencil text-info btn m-0 p-0" data-placement="bottom" title=" todo "
+                          data-toggle="modal" data-target="#edittask" data-whatever="@mdo"></i>
+                      </h5>
+                      <div class="modal fade" id="edittask" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <form>
+                                <div class="form-group">
+                                  <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                  <input type="text" class="form-control" id="recipient-name">
+                                </div>
+                                <div class="form-group">
+                                  <label for="message-text" class="col-form-label">Message:</label>
+                                  <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                              </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary">Send message</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <!-- edit -->
+
+
+                      <!-- delete -->
+                      <h5 class="m-0 p-0 px-2">
+                        <i class="fa fa-trash-o text-danger btn m-0 p-0" data-toggle="tooltip" data-placement="bottom"
+                          title="Delete todo"></i>
+                      </h5>
+                      <!-- delete -->
+                    </div>
+                    <!-- date -->
+                    <div class="row todo-created-info">
+                      <div class="col-auto d-flex align-items-center pr-2">
+                        <i class="fa fa-info-circle my-2 px-2 text-black-50 btn" data-toggle="tooltip"
+                          data-placement="bottom" title="" data-original-title="Created date"></i>
+                        <label class="date-label my-2 text-black-50">28th Jun 2020</label>
+                      </div>
+                    </div>
+                    <!-- fin date -->
+                  </div>
+                </div>
+                <!-- fin Todo Item 1-->
+
+
+
+              </div>
+            </div>
+          </div </div>
+
+
+
+
+
+          <!-- jQuery CDN -->
+          <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+          <!-- Bootstrap Js CDN -->
+          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+          <script type="text/javascript">
+            $(document).ready(function () {
+              $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+              });
+            });
+            $(document).ready(function () {
+
+              $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+              });
+
+              $('#sidebarCollapse').on('click', function () {
+                // open or close navbar
+                $('#sidebar').toggleClass('active');
+                // close dropdowns
+                $('.collapse.in').toggleClass('in');
+                // and also adjust aria-expanded attributes we use for the open/closed arrows
+                // in our CSS
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+              });
+
+            });
+          </script>
+          <script type="text/javascript">
+            $(document).ready(function () {
+              $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+              });
+
+              $('#dismiss, .overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+              });
+
+              $('#sidebarCollapse').on('click', function () {
+                // open sidebar
+                $('#sidebar').addClass('active');
+                // fade in the overlay
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+              });
+            });
+          </script>
+          <!-- jQuery CDN - Slim version (=without AJAX) -->
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+          <!-- Popper.JS -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+          <!-- Bootstrap JS -->
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
+            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+            crossorigin="anonymous"></script>
+          <!-- jQuery Custom Scroller CDN -->
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+          <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+          <script src="/Js/main.js"></script>
+          <script src="assetes/app.js"></script>
+
+
+
+</body>
+
+</html>
